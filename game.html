@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="gb2312">
+<title>打飞机</title>
+<meta name="Keywords" content="" >
+<meta name="Description" content="" >
+<link href="css/index.css" rel="stylesheet">
+<link rel="stylesheet" type="text/javascript" href="js/jquery.js">
+</head>
+<body>
+    <div>
+      <p class="intro"><span>请出拳吧,少年!</span></p>
+      <p><img id="jiandao" src="images/jiandao.png"><img id="shitou" src="images/shitou.png"><img id="bu" src="images/bu.png"></p>
+      <p><img id="computer-result"><img id="my-result"><span id="result-text"></span></p>
+    </div>
+    <script type="text/javascript">
+    /*
+    $(function(){
+      $("#jiandao").bind("click",function(){
+      	$("#my-result").src="images/jiandao.png";
+      	var computerresult=Math.random();
+      	if(computerresult<0.33){
+      		$("#my-result").src="images/jiandao.png";
+      		$("result-text").text="lose";
+      	}else if(computerresult<0.67){
+      		$("#my-result").src="images/shitou.png";
+      	}else{
+      		$("#my-result").src="images/bu.png";
+      		$("result-text").text="win";
+      	}
+      });
+      });
+      */
+      var jiandao=document.getElementById("jiandao");
+      jiandao.onclick=function(){
+      	document.getElementById("my-result").src="images/jiandao.png";
+      	var computerresult = Math.random();
+      	if(computerresult<0.33){
+      		document.getElementById("computer-result").src="images/shitou.png";
+      		document.getElementById("result-text").innerHTML="lose"
+      	}else if(computerresult<0.67){
+      		document.getElementById("computer-result").src="images/jiandao.png";
+      		document.getElementById("result-text").innerHTML="lose"
+      	}else{
+      		document.getElementById("computer-result").src="images/bu.png";
+      		document.getElementById("result-text").innerHTML="win"
+      	}
+      }
+    </script>
+</body>
+</html>

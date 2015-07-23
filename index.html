@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="gb2312">
+<title>打飞机</title>
+<meta name="Keywords" content="" >
+<meta name="Description" content="" >
+<link href="css/index.css" rel="stylesheet">
+</head>
+<body>
+    <div class="main">
+      <div class="clearfix">
+      <p class="intro"><span>请出拳吧,少年!</span></p>
+      <p class="score">你已经获胜了<span id="score">0</span>次</p>
+      </div>
+      <p class="img"><img id="jiandao" src="images/jiandao.png"><img id="shitou" src="images/shitou.png"><img id="bu" src="images/bu.png"></p>
+      <p class="center"><img id="computer-result"><img id="my-result"><span id="result-text"></span></p>
+    </div>
+    <script type="text/javascript">
+      /*$(".btn").bind("click",function(){
+        $(img).next().fadeOut();
+      });*/
+    var i=0;
+    var jiandao=document.getElementById("jiandao");
+    var shitou=document.getElementById("shitou");
+    var bu=document.getElementById("bu");
+      jiandao.onclick=function(){
+        document.getElementById("my-result").src="images/jiandao.png";
+        var computerresult = Math.random();
+        if(computerresult<0.33){
+          document.getElementById("computer-result").src="images/shitou.png";
+          document.getElementById("result-text").innerHTML="<p class='txt'>lose</p>"
+        }else if(computerresult<0.67){
+          document.getElementById("computer-result").src="images/jiandao.png";
+          document.getElementById("result-text").innerHTML="<p class='txt'>equal</p>"
+        }else{
+          document.getElementById("computer-result").src="images/bu.png";
+          document.getElementById("result-text").innerHTML="<p class='txt'>win</p>";
+          i++;
+          document.getElementById('score').innerHTML = i;
+        }
+      }
+      shitou.onclick=function(){
+        document.getElementById("my-result").src="images/shitou.png";
+        var computerresult = Math.random();
+        if(computerresult<0.33){
+          document.getElementById("computer-result").src="images/shitou.png";
+          document.getElementById("result-text").innerHTML="<p class='txt'>equal</p>"
+        }else if(computerresult<0.67){
+          document.getElementById("computer-result").src="images/jiandao.png";
+          document.getElementById("result-text").innerHTML="<p class='txt'>win</p>";
+          i++;
+          document.getElementById('score').innerHTML = i;
+        }else{
+          document.getElementById("computer-result").src="images/bu.png";
+          document.getElementById("result-text").innerHTML="<p class='txt'>lose</p>";
+        }
+      }
+      bu.onclick=function(){
+        document.getElementById("my-result").src="images/bu.png";
+        var computerresult = Math.random();
+        if(computerresult<0.33){
+          document.getElementById("computer-result").src="images/shitou.png";
+          document.getElementById("result-text").innerHTML="<p class='txt'>win</p>"
+          i++;
+          document.getElementById('score').innerHTML = i;
+        }else if(computerresult<0.67){
+          document.getElementById("computer-result").src="images/jiandao.png";
+          document.getElementById("result-text").innerHTML="<p class='txt'>lose</p>"
+        }else{
+          document.getElementById("computer-result").src="images/bu.png";
+          document.getElementById("result-text").innerHTML="<p class='txt'>equal</p>";
+        }
+      }
+    </script>
+</body>
+</html>
